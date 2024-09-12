@@ -1,0 +1,39 @@
+import random
+
+# Possible choices
+choices = ["Rock", "Paper", "Scissor"]
+
+# Function to determine the winner
+def determine_winner(player, computer):
+    if player == computer:
+        return "It's a tie!"
+    elif (player == "Rock" and computer == "Scissor") or \
+         (player == "Paper" and computer == "Rock") or \
+         (player == "Scissor" and computer == "Paper"):
+        return "Player wins!"
+    else:
+        return "Computer wins!"
+
+# Function to play the game
+def play_rock_paper_scissors():
+    print("Welcome to Rock, Paper, Scissors!")
+    
+    # Player chooses Rock, Paper, or Scissor
+    player_choice = input("Enter your choice (Rock, Paper, Scissor): ").capitalize()
+    
+    if player_choice not in choices:
+        print("Invalid choice! Please choose Rock, Paper, or Scissor.")
+        return
+
+    # Computer randomly chooses Rock, Paper, or Scissor
+    computer_choice = random.choice(choices)
+    
+    print(f"Player chose: {player_choice}")
+    print(f"Computer chose: {computer_choice}")
+    
+    # Determine and print the result
+    result = determine_winner(player_choice, computer_choice)
+    print(f"Result: {result}")
+
+# Run the game
+play_rock_paper_scissors()
